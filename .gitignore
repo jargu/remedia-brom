@@ -1,0 +1,32 @@
+# Unit test reports
+TEST*.xml
+
+# Mac
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+# Guía local de Claude (no se versiona)
+CLAUDE.md
+.claude-memoria/
+instalar-memoria.sh
+
+# Material original del cliente (no se publica: solo es la fuente de assets/img)
+Torres-optima-img/
+Torres-optima-img.zip
+imagenes-brom/
+imagenes-brom.zip
+imagenes-torres-optima.zip
+optimassss/
+
+# Master de vídeo sin comprimir
+assets/img/video/hero-brom-v4.mp4
+
+PENDIENTES-CLIENTE.md

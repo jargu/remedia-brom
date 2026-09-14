@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torre Óptima 2 | Torres Óptima</title>
+
+    <!-- Fonts -->
+    <link rel="preload" href="../../assets/css/fonts/Sentient-Light.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/css/fonts/Syne-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Styles -->
+    <link href="../../assets/css/fonts.css" rel="stylesheet">
+    <link href="../../assets/css/main.css" rel="stylesheet">
+    <link href="../../assets/css/custom.css" rel="stylesheet">
+    <link href="../../assets/css/media-query.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link href="../../assets/img/main/favicon.png" rel="icon" type="image/png">
+
+</head>
+
+<body>
+    <header class="header-torres header-flat start-style">
+        <div class="torres-topbar">
+            <div class="container custom-container">
+                <p class="text-m text-xsm">Un proyecto desarrollado por <a class="torres-marca" href="../index.html" aria-label="Brom"><svg width="36" height="11" viewBox="0 0 92 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M44.7198 9.15527C39.6226 9.15527 35.304 12.9964 35.304 18.577C35.304 24.1576 39.714 27.9987 44.7198 27.9987C49.7256 27.9987 54.1357 24.1576 54.1357 18.577C54.1357 12.9964 49.5885 9.15527 44.7198 9.15527ZM44.5854 22.9998C42.485 22.9998 40.271 21.513 40.271 18.6228C40.271 15.7326 42.5737 14.157 44.6741 14.157C46.7745 14.157 49.0814 15.6756 49.0814 18.6228C49.0814 21.5699 46.6872 22.9998 44.5854 22.9998Z"/>
+                                <path d="M0 27.6335V1.01477L4.44469 0V11.622C6.13361 9.84512 8.17861 9.09549 10.5312 9.09549C15.7601 9.09549 19.5245 13.2906 19.5245 18.5672C19.5245 23.8437 15.3804 27.8945 10.5132 27.8945C8.30607 27.8945 5.98259 26.9908 4.28812 25.0931L3.52748 27.6335H0ZM10.3137 23.1885C12.9697 23.1885 14.7112 20.959 14.7112 18.5241C14.7112 15.7089 12.6843 13.7779 10.2957 13.7779C7.90705 13.7779 5.86205 15.627 5.86205 18.5241C5.86205 20.9993 7.58146 23.1885 10.3137 23.1885Z"/>
+                                <path d="M34.1983 13.6708H32.5287C29.0941 13.6708 27.225 15.8142 27.225 19.3818V27.6333H22.7776V9.31322H26.3314L27.268 12.252C28.0466 10.4307 29.7467 9.24658 32.1934 9.24658C32.8239 9.24658 33.4543 9.32155 34.1969 9.50618V13.6694L34.1983 13.6708Z"/>
+                                <path d="M57.4609 27.6309V9.31911H61.0645L61.9333 11.7915C63.0278 10.2589 65.0451 9.27191 66.8823 9.27191C69.2348 9.27191 71.1884 10.2784 72.1541 12.2552C73.1697 10.6504 75.4502 9.21777 78.3542 9.21777C82.5343 9.21777 84.9769 12.0455 84.9769 15.523V27.6364H80.499V17.5275C80.499 14.8886 79.047 13.6656 76.9839 13.6656C74.9209 13.6656 73.4689 15.4883 73.4689 17.6358V27.6267H68.9453V17.6414C68.9453 15.4425 67.3478 13.703 65.4206 13.703C63.4933 13.703 61.9055 15.4064 61.9055 17.5817V27.6309H57.4595H57.4609Z"/>
+                                <path d="M92.0001 23.6035H87.8616V27.7501H92.0001V23.6035Z"/>
+                            </svg></a></p>
+                <a class="text-xsm text-underline d-lg-none" href="../index.html">Ver más</a>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container custom-container">
+                <div class="row">
+                    <div class="col-6 col-lg-3">
+                        <a class="navbar-brand navbar-brand-torre" href="index.html" aria-label="Torre Óptima 2"><img src="../../assets/img/main/logo-torre-optima-2-negro.svg" width="225" height="26" alt="Torre Óptima 2"></a>
+                    </div>
+                    <div class="col-12 col-lg-6 order-3 order-lg-2 nav-col">
+                        <div class="collapse navbar-collapse justify-content-center" id="navbarTorres">
+                            <ul class="navbar-nav torres-nav">
+                                <li class="nav-item"><a class="nav-link text-l" href="#espacios">ESPACIOS</a></li>
+                                <li class="nav-item"><a class="nav-link text-l" href="#ubicacion">UBICACIÓN</a></li>
+                                <li class="nav-item"><a class="nav-link text-l" href="#galeria">GALERÍA</a></li>
+                            </ul>
+                            <div class="menu-torres-pie d-lg-none">
+                                <p class="text-l lang-switch"><a class="text-g" href="../../en/torres-optima/torre-optima-2.html">ENG</a> / <span class="text-underline">ESP</span></p>
+                                <div class="box-rule-top menu-torres-copy">
+                                    <p class="text-xs">©Torres Óptima, 2026 | Diseñado por <a class="text-underline" href="https://remedia.mx/" target="_blank" rel="noopener">Remedia</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3 order-2 order-lg-3">
+                        <div class="d-flex align-items-center justify-content-end justify-content-lg-between gap-24 gap-16m">
+                            <p class="text-l lang-switch d-none d-lg-block"><a class="text-g" href="../../en/torres-optima/torre-optima-2.html">ENG</a> / <span class="text-underline">ESP</span></p>
+                            <a class="btn-pill btn-terracota" href="#form"><span class="d-none d-lg-inline">Hablemos hoy mismo</span><span class="d-lg-none">Hablemos</span></a>
+                            <button class="navbar-toggler collapsed d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTorres" aria-controls="navbarTorres" aria-expanded="false" aria-label="Menú">
+                                <span class="navbar-toggler-icon"><span></span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="t1-hero-section bg-w text-b pt-138 pb-58 pt-98m pb-43m">
+            <div class="container custom-container">
+                <div class="row t1-hero-row">
+                    <div class="col-12 col-lg-8">
+                        <picture class="t1-hero-media"><source media="(max-width: 991px)" srcset="../../assets/img/torre-optima-2/hero-banner-movil.webp"><img src="../../assets/img/torre-optima-2/hero-banner.webp" width="768" height="504" alt="Torre Óptima 2"></picture>
+                    </div>
+                    <div class="col-12 col-lg-4 t1-hero-texto mt-40m">
+                        <h1 class="head-op1 head-op2m"><span class="font-l">ESPACIOS DISEÑADOS PARA UNA </span><span class="font-m">OPERACIÓN MÁS EFICIENTE.</span></h1>
+                        <p class="text-xl text-lm mt-8">Configuraciones flexibles y funcionales para organizaciones que requieren continuidad, agilidad y un entorno preparado para el día a día.</p>
+                        <a class="btn-pill btn-terracota mt-24" href="#form">Hablemos hoy mismo</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="t1-solidez-section bg-lg text-b pad-80 pad-60m">
+            <div class="container custom-container">
+                <div class="row t1-solidez-head">
+                    <div class="col-12 col-lg-8">
+                        <h2 class="head-op2 head-op3m"><span class="font-l">LA </span><span class="font-m">EFICIENCIA</span><span class="font-l"> SE CONSTRUYE DESDE EL ESPACIO.</span></h2>
+                        <p class="text-xl text-lm mt-8">Infraestructura preparada para facilitar el trabajo diario, respaldados por certificaciones orientadas al desempeño y el bienestar.</p>
+                    </div>
+                </div>
+                <div class="row t1-solidez-row mt-55 mt-40m">
+                    <div class="col-12 col-lg-4">
+                        <ul class="t1-atributos mt-0">
+                            <li class="t1-atributo">
+                                <h3 class="head-op4 head-op5m font-m">OPERACIÓN INTELIGENTE</h3>
+                                <p class="text-m text-sm mt-8">Espacios preparados para facilitar el trabajo diario, respaldados por certificaciones orientadas al desempeño y el bienestar.</p>
+                            </li>
+                            <li class="t1-atributo">
+                                <h3 class="head-op4 head-op5m font-m">mejora CONTINUA</h3>
+                                <p class="text-m text-sm mt-8">La incorporación constante de mejoras y certificaciones fortalece el desempeño del edificio frente a las necesidades actuales.</p>
+                            </li>
+                            <li class="t1-atributo">
+                                <h3 class="head-op4 head-op5m font-m">BIENESTAR INTEGRADO</h3>
+                                <p class="text-m text-sm mt-8">Servicios que favorecen una experiencia de trabajo cómoda, equilibrada y eficiente.</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-lg-3 offset-lg-1 mt-40m">
+                        <picture class="t1-solidez-media-a"><source media="(max-width: 991px)" srcset="../../assets/img/torre-optima-2/la-eficiencia-01-movil.webp"><img src="../../assets/img/torre-optima-2/la-eficiencia-01.webp" width="283" height="414" alt="Torre Óptima 2"></picture>
+                    </div>
+                    <div class="col-6 col-lg-3 offset-lg-1 t1-solidez-alta t2-solidez-alta mt-40m">
+                        <picture class="t1-solidez-media-b"><source media="(max-width: 991px)" srcset="../../assets/img/torre-optima-2/la-eficiencia-02-movil.webp"><img src="../../assets/img/torre-optima-2/la-eficiencia-02.webp" width="376" height="462" alt="Torre Óptima 2"></picture>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="t1-banda-section bg-o text-w pad-80 pad-60m">
+            <div class="container custom-container">
+                <div class="row">
+                    <div class="col-12 text-center text-start-m">
+                        <h2 class="head-op2 head-op3m">ESPACIOS QUE HACEN MÁS SIMPLE el día a DÍA.</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="t1-espacios-section bg-w text-b pad-80 pad-60m" id="espacios">
+            <div class="container custom-container d-flex flex-column">
+                <div class="row">
+                    <div class="col-12 col-lg-9">
+                        <h2 class="head-op2 head-op3m"><span class="font-m">PLANTAS FLEXIBLES</span><span class="font-l"> PARA DISTINTAS FORMAS DE TRABAJAR.</span></h2>
+                        <p class="text-xl text-lm mt-8">Cada nivel ofrece la libertad de configurar espacios eficientes para responder a distintas dinámicas de trabajo y crecimiento.</p>
+                    </div>
+                </div>
+                                <div class="row mt-24 order-lg-last">
+                    <div class="col-12 t1-espacios-accion">
+                        <a class="btn-pill btn-terracota" href="#form">Encontremos el espacio adecuado</a>
+                    </div>
+                </div>
+                <div class="swiper espacios-slider mt-18 mt-40m">
+                    <div class="row t1-espacios-row">
+                    <div class="col-12 col-lg-4 espacio-item">
+                        <picture class="t1-espacio-media"><source media="(max-width: 991px)" srcset="../../assets/img/torre-optima-2/plantas-flexibles-01-movil.webp"><img src="../../assets/img/torre-optima-2/plantas-flexibles-01.webp" width="376" height="400" alt="FLEXIBILIDAD OPERATIVA"></picture>
+                        <h3 class="head-op4 head-op5m font-m mt-16">FLEXIBILIDAD OPERATIVA</h3>
+                        <p class="text-m text-sm mt-8">Distribuciones que se adaptan a la evolución de los equipos sin comprometer la eficiencia.</p>
+                    </div>
+                    <div class="col-12 col-lg-4 espacio-item">
+                        <picture class="t1-espacio-media"><source media="(max-width: 991px)" srcset="../../assets/img/torre-optima-2/plantas-flexibles-02-movil.webp"><img src="../../assets/img/torre-optima-2/plantas-flexibles-02.webp" width="376" height="400" alt="EQUIPOS MEJOR CONECTADOS"></picture>
+                        <h3 class="head-op4 head-op5m font-m mt-16">EQUIPOS MEJOR CONECTADOS</h3>
+                        <p class="text-m text-sm mt-8">Plantas amplias que favorecen la interacción entre equipos y una mejor coordinación diaria.</p>
+                    </div>
+                    <div class="col-12 col-lg-4 espacio-item">
+                        <picture class="t1-espacio-media"><source media="(max-width: 991px)" srcset="../../assets/img/torre-optima-2/plantas-flexibles-03-movil.webp"><img src="../../assets/img/torre-optima-2/plantas-flexibles-03.webp" width="376" height="400" alt="ESPACIO PARA EVOLUCIONAR"></picture>
+                        <h3 class="head-op4 head-op5m font-m mt-16">ESPACIO PARA EVOLUCIONAR</h3>
+                        <p class="text-m text-sm mt-8">Una configuración flexible que acompaña el crecimiento de la organización sin perder funcionalidad.</p>
+                    </div>
+                    </div>
+                </div>
+                <div class="slider-dots espacios-dots d-lg-none mt-16"></div>
+            </div>
+        </section>
+        <section class="t1-ubicacion-section bg-lg text-b pad-80 pad-60m" id="ubicacion">
+            <div class="container custom-container">
+                <div class="row t1-ubicacion-head">
+                    <div class="col-12 col-lg-6">
+                        <h2 class="head-op2 head-op3m"><span class="font-l">CONECTADA CON</span><span class="font-m"> EL RITMO DE TU OPERACIÓN.</span></h2>
+                    </div>
+                    <div class="col-12 col-lg-5 offset-lg-1 mt-24m">
+                        <p class="text-xl text-mm">Su ubicación sobre Paseo de las Palmas facilita la conexión con los principales corredores corporativos y acerca a tu empresa a servicios que simplifican la operación diaria.</p>
+                    </div>
+                </div>
+                <div class="row t1-ubicacion-row mt-40 mt-40m">
+                    <div class="col-12 col-lg-5 mt-24m">
+                        <picture class="t1-ubicacion-media d-none d-lg-block"><img src="../../assets/img/torre-optima-2/conectada-con.webp" width="474" height="338" alt="Paseo de las Palmas"></picture>
+                        <ul class="dist-lista mt-24">
+                                <li class="dist-item">
+                                    <span class="text-xl text-lm">ANILLO PERIFÉRICO</span>
+                                    <span class="text-l text-mm text-g">350 m</span>
+                                </li>
+                                <li class="dist-item">
+                                    <span class="text-xl text-lm">PASEO DE LA REFORMA</span>
+                                    <span class="text-l text-mm text-g">800 m</span>
+                                </li>
+                                <li class="dist-item">
+                                    <span class="text-xl text-lm">METRO AUDITORIO</span>
+                                    <span class="text-l text-mm text-g">2,3 km</span>
+                                </li>
+                                <li class="dist-item">
+                                    <span class="text-xl text-lm">POLANCO</span>
+                                    <span class="text-l text-mm text-g">3,0 km</span>
+                                </li>
+                                <li class="dist-item">
+                                    <span class="text-xl text-lm">BOSQUES DE LAS LOMAS</span>
+                                    <span class="text-l text-mm text-g">4,5 km</span>
+                                </li>
+                                <li class="dist-item">
+                                    <span class="text-xl text-lm">SANTA FE</span>
+                                    <span class="text-l text-mm text-g">10 km</span>
+                                </li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-lg-7 order-first order-lg-last">
+                        <picture class="t1-mapa"><img src="../../assets/img/torre-optima-2/ubicacion-mapa.webp" width="670" height="590" alt="Ubicación de Torre Óptima 2"></picture>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="t1-cert-section bg-o text-w pad-80 pad-60m">
+            <div class="container custom-container">
+                <div class="row t1-cert-row">
+                    <div class="col-12 col-lg-4">
+                        <h2 class="head-op2 head-op3m"><span class="font-l">la evolución también se mide en </span><span class="font-m">estándares.</span></h2>
+                        <p class="text-xl text-mm mt-8">Las certificaciones internacionales respaldan una mejora continua que fortalece la eficiencia operativa y el bienestar de quienes hacen posible cada jornada.</p>
+                        <div class="t1-sellos d-none d-lg-flex mt-40">
+                            <img src="../../assets/img/torre-optima-2/sello-leed-platinum.webp" width="55" height="55" alt="LEED Platinum">
+                            <img src="../../assets/img/torre-optima-2/sello-well.webp" width="55" height="55" alt="WELL Health-Safety Rating">
+                        </div>
+                        <ul class="t1-cert-lista mt-40">
+                            <li class="t1-cert-item">
+                                <img class="t1-cert-sello" src="../../assets/img/torre-optima-2/sello-leed-platinum.webp" width="40" height="40" alt="LEED Platinum">
+                                <h3 class="head-op5m head-op4">eficiencia que evoluciona</h3>
+                                <p class="text-m text-sm mt-8">Reconoce una operación que mejora continuamente para mantenerse eficiente, responsable y preparada para responder a las exigencias actuales.</p>
+                            </li>
+                            <li class="t1-cert-item">
+                                <img class="t1-cert-sello" src="../../assets/img/torre-optima-2/sello-well.webp" width="40" height="40" alt="WELL Health-Safety Rating">
+                                <h3 class="head-op5m head-op4">BIENESTAR QUE IMPULSA LA OPERACIÓN</h3>
+                                <p class="text-m text-sm mt-8">Respalda espacios que favorecen la salud, el confort y una mejor experiencia para quienes trabajan todos los días.</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-lg-7 offset-lg-1 mt-24m">
+                        <picture class="t1-cert-media"><source media="(max-width: 991px)" srcset="../../assets/img/torre-optima-2/la-evolucion-movil.webp"><img src="../../assets/img/torre-optima-2/la-evolucion.webp" width="670" height="572" alt="Torre Óptima 2"></picture>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="t1-serv-section bg-w text-b pad-80 pad-60m">
+            <div class="container custom-container">
+                <div class="row">
+                    <div class="col-12 text-center text-start-m">
+                        <h2 class="head-op2 head-op3m"><span class="font-l">TODO LO NECESARIO, EN </span><span class="font-m">UN MISMO LUGAR.</span></h2>
+                        <p class="text-xl text-mm mt-8">Desde los sistemas que mantienen la operación en marcha hasta los servicios que acompañan la jornada, cada elemento suma para ofrecer una experiencia de trabajo más fluida y eficiente.</p>
+                    </div>
+                </div>
+                <div class="row t1-serv-row mt-40">
+                    <div class="col-12 col-lg-7 d-none d-lg-block">
+                        <div class="serv-media">
+                            <picture class="serv-media-item is-active"><source media="(max-width: 991px)" srcset="../../assets/img/torre-optima-2/todo-lo-necesario-servicios-movil.webp"><img src="../../assets/img/torre-optima-2/todo-lo-necesario-servicios.webp" width="670" height="395" alt="SERVICIOS QUE COMPLETAN LA JORNADA"></picture>
+                            <picture class="serv-media-item"><source media="(max-width: 991px)" srcset="../../assets/img/torre-optima-2/todo-lo-necesario-continuidad-movil.webp"><img src="../../assets/img/torre-optima-2/todo-lo-necesario-continuidad.webp" width="670" height="395" alt="CONTINUIDAD SIN INTERRUPCIONES"></picture>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-5">
+                        <ul class="serv-lista">
+                            <li class="serv-item is-active">
+                                <picture class="serv-item-media d-lg-none"><source media="(max-width: 991px)" srcset="../../assets/img/torre-optima-2/todo-lo-necesario-servicios-movil.webp"><img src="../../assets/img/torre-optima-2/todo-lo-necesario-servicios.webp" width="670" height="395" alt="SERVICIOS QUE COMPLETAN LA JORNADA"></picture>
+                                <button class="eco-cabecera" type="button" aria-expanded="true">
+                                    <span class="head-op4 font-m">SERVICIOS QUE COMPLETAN LA JORNADA</span>
+                                    <span class="eco-icono"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path class="eco-icono-v" d="M12 5V19" stroke="currentColor" stroke-linecap="round"/><path d="M5 12H19" stroke="currentColor" stroke-linecap="round"/></svg></span>
+                                </button>
+                                <div class="eco-cuerpo"><div class="serv-cuerpo-int">
+                                    <p class="text-m mt-8">Una oferta de servicios integrada al edificio permite resolver necesidades cotidianas sin alejarse del entorno de trabajo.</p>
+                                    <ul class="serv-vinetas mt-24">
+                                        <li class="text-m text-sm">Oferta gastronómica y cafeterías para reuniones, comidas de trabajo y distintos momentos de la jornada.</li>
+                                        <li class="text-m text-sm">Espacios orientados al bienestar que favorecen un mejor equilibrio durante la jornada laboral.</li>
+                                        <li class="text-m text-sm">Sucursal bancaria y cajeros automáticos para resolver gestiones cotidianas sin salir del edificio.</li>
+                                        <li class="text-m text-sm">Oferta comercial integrada que complementa la experiencia diaria de colaboradores y visitantes.</li>
+                                    </ul>
+                                </div></div>
+                            </li>
+                            <li class="serv-item">
+                                <picture class="serv-item-media d-lg-none"><source media="(max-width: 991px)" srcset="../../assets/img/torre-optima-2/todo-lo-necesario-continuidad-movil.webp"><img src="../../assets/img/torre-optima-2/todo-lo-necesario-continuidad.webp" width="670" height="395" alt="CONTINUIDAD SIN INTERRUPCIONES"></picture>
+                                <button class="eco-cabecera" type="button" aria-expanded="false">
+                                    <span class="head-op4 font-m">CONTINUIDAD SIN INTERRUPCIONES</span>
+                                    <span class="eco-icono"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path class="eco-icono-v" d="M12 5V19" stroke="currentColor" stroke-linecap="round"/><path d="M5 12H19" stroke="currentColor" stroke-linecap="round"/></svg></span>
+                                </button>
+                                <div class="eco-cuerpo"><div class="serv-cuerpo-int">
+                                    <p class="text-m mt-8">Los sistemas que operan detrás de cada espacio brindan estabilidad y respaldo para que la actividad diaria continúe con confianza.</p>
+                                    <ul class="serv-vinetas mt-24">
+                                        <li class="text-m text-sm">Automatización y monitoreo centralizado para los sistemas principales del edificio.</li>
+                                        <li class="text-m text-sm">Doble alimentación eléctrica y planta de emergencia.</li>
+                                        <li class="text-m text-sm">Sistema inteligente de detección y respuesta contra incendios.</li>
+                                        <li class="text-m text-sm">Infraestructura de telecomunicaciones preparada para distintos requerimientos tecnológicos.</li>
+                                    </ul>
+                                </div></div>
+                            </li>
+                        </ul>
+                        <a class="btn-pill btn-terracota mt-24" href="#form">Conoce la disponibilidad</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="t1-banda2-section bg-o text-w pad-80 pad-60m">
+            <div class="container custom-container">
+                <div class="row">
+                    <div class="col-12 text-center text-start-m">
+                        <h2 class="head-op2 head-op3m"><span class="font-l">donde la </span><span class="font-m">eficiencia </span><span class="font-l">toma forma.</span></h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="t1-galeria-section bg-w text-b pad-80 pad-60m" id="galeria">
+            <div class="container custom-container">
+                <div class="swiper t1-galeria-slider">
+                    <div class="row t1-galeria-row galeria-row-4">
+                    <div class="col-6 col-lg-3 galeria-item">
+                        <picture class="t1-galeria-media"><source media="(max-width: 991px)" srcset="../../assets/img/torre-optima-2/galeria-01-movil.webp"><img src="../../assets/img/torre-optima-2/galeria-01.webp" width="278" height="349" alt="Torre Óptima 2"></picture>
+                    </div>
+                    <div class="col-6 col-lg-3 galeria-item">
+                        <picture class="t1-galeria-media"><source media="(max-width: 991px)" srcset="../../assets/img/torre-optima-2/galeria-02-movil.webp"><img src="../../assets/img/torre-optima-2/galeria-02.webp" width="278" height="349" alt="Torre Óptima 2"></picture>
+                    </div>
+                    <div class="col-6 col-lg-3 galeria-item">
+                        <picture class="t1-galeria-media"><source media="(max-width: 991px)" srcset="../../assets/img/torre-optima-2/galeria-03-movil.webp"><img src="../../assets/img/torre-optima-2/galeria-03.webp" width="278" height="349" alt="Torre Óptima 2"></picture>
+                    </div>
+                    <div class="col-6 col-lg-3 galeria-item">
+                        <picture class="t1-galeria-media"><source media="(max-width: 991px)" srcset="../../assets/img/torre-optima-2/galeria-04-movil.webp"><img src="../../assets/img/torre-optima-2/galeria-04.webp" width="278" height="349" alt="Torre Óptima 2"></picture>
+                    </div>
+                    <div class="col-12 col-lg-5 galeria-item">
+                        <picture class="t1-galeria-media"><source media="(max-width: 991px)" srcset="../../assets/img/torre-optima-2/galeria-05-movil.webp"><img src="../../assets/img/torre-optima-2/galeria-05.webp" width="474" height="349" alt="Torre Óptima 2"></picture>
+                    </div>
+                    <div class="col-12 col-lg-7 galeria-item">
+                        <picture class="t1-galeria-media"><source media="(max-width: 991px)" srcset="../../assets/img/torre-optima-2/galeria-06-movil.webp"><img src="../../assets/img/torre-optima-2/galeria-06.webp" width="670" height="349" alt="Torre Óptima 2"></picture>
+                    </div>
+                    </div>
+                    <div class="slider-dots t1-galeria-dots d-lg-none mt-24"></div>
+                </div>
+            </div>
+        </section>
+        <section class="to-brom-section bg-b text-w">
+            <div class="container custom-container">
+                <div class="row to-brom-row">
+                    <div class="col-12 col-lg-6 pad-80 pad-40m to-brom-texto">
+                        <a class="brom-logo" href="../index.html" aria-label="Brom">
+                            <svg width="269" height="82" viewBox="0 0 92 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M44.7198 9.15527C39.6226 9.15527 35.304 12.9964 35.304 18.577C35.304 24.1576 39.714 27.9987 44.7198 27.9987C49.7256 27.9987 54.1357 24.1576 54.1357 18.577C54.1357 12.9964 49.5885 9.15527 44.7198 9.15527ZM44.5854 22.9998C42.485 22.9998 40.271 21.513 40.271 18.6228C40.271 15.7326 42.5737 14.157 44.6741 14.157C46.7745 14.157 49.0814 15.6756 49.0814 18.6228C49.0814 21.5699 46.6872 22.9998 44.5854 22.9998Z"/>
+                                <path d="M0 27.6335V1.01477L4.44469 0V11.622C6.13361 9.84512 8.17861 9.09549 10.5312 9.09549C15.7601 9.09549 19.5245 13.2906 19.5245 18.5672C19.5245 23.8437 15.3804 27.8945 10.5132 27.8945C8.30607 27.8945 5.98259 26.9908 4.28812 25.0931L3.52748 27.6335H0ZM10.3137 23.1885C12.9697 23.1885 14.7112 20.959 14.7112 18.5241C14.7112 15.7089 12.6843 13.7779 10.2957 13.7779C7.90705 13.7779 5.86205 15.627 5.86205 18.5241C5.86205 20.9993 7.58146 23.1885 10.3137 23.1885Z"/>
+                                <path d="M34.1983 13.6708H32.5287C29.0941 13.6708 27.225 15.8142 27.225 19.3818V27.6333H22.7776V9.31322H26.3314L27.268 12.252C28.0466 10.4307 29.7467 9.24658 32.1934 9.24658C32.8239 9.24658 33.4543 9.32155 34.1969 9.50618V13.6694L34.1983 13.6708Z"/>
+                                <path d="M57.4609 27.6309V9.31911H61.0645L61.9333 11.7915C63.0278 10.2589 65.0451 9.27191 66.8823 9.27191C69.2348 9.27191 71.1884 10.2784 72.1541 12.2552C73.1697 10.6504 75.4502 9.21777 78.3542 9.21777C82.5343 9.21777 84.9769 12.0455 84.9769 15.523V27.6364H80.499V17.5275C80.499 14.8886 79.047 13.6656 76.9839 13.6656C74.9209 13.6656 73.4689 15.4883 73.4689 17.6358V27.6267H68.9453V17.6414C68.9453 15.4425 67.3478 13.703 65.4206 13.703C63.4933 13.703 61.9055 15.4064 61.9055 17.5817V27.6309H57.4595H57.4609Z"/>
+                                <path d="M92.0001 23.6035H87.8616V27.7501H92.0001V23.6035Z"/>
+                            </svg>
+                        </a>
+                        <div class="to-brom-pie">
+                            <h2 class="head-2 head-3m">Detrás de cada edificio, Brom.</h2>
+                            <p class="text-xl text-mm mt-8">Más de 50 años desarrollando, construyendo y operando espacios corporativos en México para empresas que exigen continuidad, control y certeza en cada etapa de su operación.</p>
+                            <a class="btn-main btn-outline-w mt-24" href="../index.html">CONOCE MÁS DE BROM</a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 pb-24m">
+                        <div class="swiper brom-slider">
+                        <div class="row to-brom-fotos">
+                            <div class="col-6 brom-item">
+                                <picture class="brom-media"><source media="(max-width: 991px)" srcset="../../assets/img/torres-optima/brom-01-movil.webp"><img src="../../assets/img/torres-optima/brom-01.webp" width="278" height="223" alt="Brom"></picture>
+                            </div>
+                            <div class="col-6 brom-item">
+                                <picture class="brom-media"><source media="(max-width: 991px)" srcset="../../assets/img/torres-optima/brom-02-movil.webp"><img src="../../assets/img/torres-optima/brom-02.webp" width="278" height="223" alt="Brom"></picture>
+                            </div>
+                            <div class="col-6 brom-item">
+                                <picture class="brom-media"><source media="(max-width: 991px)" srcset="../../assets/img/torres-optima/brom-03-movil.webp"><img src="../../assets/img/torres-optima/brom-03.webp" width="278" height="223" alt="Brom"></picture>
+                            </div>
+                            <div class="col-6 brom-item">
+                                <picture class="brom-media"><source media="(max-width: 991px)" srcset="../../assets/img/torres-optima/brom-04-movil.webp"><img src="../../assets/img/torres-optima/brom-04.webp" width="278" height="223" alt="Brom"></picture>
+                            </div>
+                            <div class="col-6 brom-item">
+                                <picture class="brom-media"><source media="(max-width: 991px)" srcset="../../assets/img/torres-optima/brom-05-movil.webp"><img src="../../assets/img/torres-optima/brom-05.webp" width="278" height="223" alt="Brom"></picture>
+                            </div>
+                            <div class="col-6 brom-item">
+                                <picture class="brom-media"><source media="(max-width: 991px)" srcset="../../assets/img/torres-optima/brom-06-movil.webp"><img src="../../assets/img/torres-optima/brom-06.webp" width="278" height="223" alt="Brom"></picture>
+                            </div>
+                        </div>
+                        <div class="slider-dots brom-dots d-lg-none mt-24"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="to-form-section bg-w text-b pad-80 pad-60m" id="form">
+            <div class="container custom-container">
+                <div class="row to-form-row">
+                    <div class="col-12 col-lg-5">
+                        <h2 class="head-op2 head-op3m"><span class="font-l">EL SIGUIENTE PASO ES </span><span class="font-m">ENCONTRAR EL ESPACIO ADECUADO.</span></h2>
+                        <p class="text-xl text-mm mt-8">Más que mostrarte una oficina, queremos ayudarte a encontrar un espacio que acompañe la forma en que tu organización opera hoy y la visión que tiene para el futuro.</p>
+                        <p class="to-brochure mt-40">
+                            <span class="head-op5 font-m">DESCARGA NUESTRO BROCHURE</span>
+                            <span class="to-brochure-links">
+                                <a class="text-m text-underline" href="#">MÓVIL</a>
+                                <a class="text-m text-underline" href="#">DESKTOP</a>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="col-12 col-lg-6 offset-lg-1 mt-40m">
+                        <form id="contact-form" novalidate>
+                            <div class="row form-row">
+                                <div class="col-12">
+                                    <div class="campo campo-o">
+                                        <label class="campo-label text-m" for="nombre">Nombre completo</label>
+                                        <input class="campo-input" type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre completo">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <div class="campo campo-o">
+                                        <label class="campo-label text-m" for="correo">Correo electrónico</label>
+                                        <input class="campo-input" type="email" id="correo" name="correo" placeholder="ejemplo@tu-empresa">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <div class="campo campo-o">
+                                        <label class="campo-label text-m" for="telefono">Número de teléfono</label>
+                                        <input class="campo-input" type="tel" id="telefono" name="telefono" placeholder="¿A qué número te contactamos?">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="campo campo-o">
+                                        <label class="campo-label text-m" for="empresa">Empresa</label>
+                                        <input class="campo-input" type="text" id="empresa" name="empresa" placeholder="Nombre de la empresa">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="campo campo-o">
+                                        <label class="campo-label text-m" for="mensaje">Mensaje</label>
+                                        <textarea class="campo-input campo-area" id="mensaje" name="mensaje" placeholder="Ejemplo: Busco oficinas para aproximadamente 80 colaboradores y me interesa conocer qué torre podría adaptarse mejor a mis necesidades."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-none">
+                                <input type="text" name="check_bot_field" tabindex="-1" autocomplete="off">
+                            </div>
+                            <button class="btn-pill btn-terracota mt-24" type="submit">Hablemos hoy mismo</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="t1-cross-section bg-w text-b pad-80 pad-60m">
+            <div class="container custom-container">
+                <div class="row">
+                    <div class="col-12 text-center text-start-m">
+                        <h2 class="head-op2 head-op3m"><span class="font-l">cada empresa </span><span class="font-m">opera </span><span class="font-l">de forma distinta.</span></h2>
+                        <p class="text-xl text-mm mt-8">Si buscas una configuración, imagen o experiencia distinta, conoce las demás alternativas y encuentra la que mejor se adapte a la forma en que opera tu organización.</p>
+                    </div>
+                </div>
+                <div class="swiper cross-slider mt-40 mt-18m">
+                    <div class="row t1-cross-row">
+                    <div class="col-12 col-lg-6 cross-item">
+                        <article class="cross-card">
+                            <picture class="cross-media"><source media="(max-width: 991px)" srcset="../../assets/img/torre-optima-2/cada-empresa-TO1-movil.webp"><img src="../../assets/img/torre-optima-2/cada-empresa-TO1.webp" width="573" height="300" alt="Torre Óptima 1"></picture>
+                            <div class="cross-panel">
+                                <img class="cross-logo" src="../../assets/img/main/logo-torre-optima-1.svg" width="150" height="18" alt="Torre Óptima 1">
+                                <p class="text-m text-sm mt-8">Un entorno de alto nivel corporativo para organizaciones que valoran estabilidad, permanencia y una operación respaldada por la experiencia.</p>
+                                <a class="btn-pill btn-outline-w mt-24" href="torre-optima-1.html">Conoce Torre Óptima 1</a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-12 col-lg-6 cross-item">
+                        <article class="cross-card">
+                            <picture class="cross-media"><source media="(max-width: 991px)" srcset="../../assets/img/torre-optima-2/cada-empresa-TO3-movil.webp"><img src="../../assets/img/torre-optima-2/cada-empresa-TO3.webp" width="569" height="300" alt="Torre Óptima 3"></picture>
+                            <div class="cross-panel">
+                                <img class="cross-logo" src="../../assets/img/main/logo-torre-optima-3.svg" width="153" height="18" alt="Torre Óptima 3">
+                                <p class="text-m text-sm mt-8">Arquitectura contemporánea y espacios amplios para organizaciones que buscan una imagen actual sin perder formalidad.</p>
+                                <a class="btn-pill btn-outline-w mt-24" href="torre-optima-3.html">Conoce Torre Óptima 3</a>
+                            </div>
+                        </article>
+                    </div>
+                    </div>
+                </div>
+                <div class="slider-dots cross-dots d-lg-none mt-24"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="to-footer-section bg-o text-w pt-40 pb-42 pt-20m pb-56m">
+        <div class="container custom-container">
+            <div class="row">
+                <div class="col-12 to-footer-isotipo">
+                    <img src="../../assets/img/main/isotipo-torres-optima.svg" width="111" height="112" alt="Torres Óptima">
+                </div>
+            </div>
+            <div class="row to-footer-row mt-40 mt-34m">
+                <div class="col-12 col-lg-10 offset-lg-1">
+                <div class="to-footer-cols">
+                <div class="to-footer-col order-1">
+                    <p class="text-m font-b">ECOSISTEMA</p>
+                    <ul class="footer-links mt-24">
+                        <li><a class="text-m" href="index.html">TORRES ÓPTIMA</a></li>
+                        <li><a class="text-m" href="torre-optima-1.html">TORRE ÓPTIMA 1</a></li>
+                        <li><a class="text-m" href="#">TORRE ÓPTIMA 2</a></li>
+                        <li><a class="text-m" href="torre-optima-3.html">TORRE ÓPTIMA 3</a></li>
+                    </ul>
+                </div>
+                <div class="to-footer-col order-3 order-lg-2">
+                    <p class="text-m font-b">CONTACTO</p>
+                    <div class="to-footer-bloque mt-24">
+                        <p class="text-m">Lic. Leticia Hurtado de Mendoza</p>
+                        <a class="text-m mt-16" href="mailto:lhurtado@brom.com.mx">lhurtado@brom.com.mx</a>
+                        <a class="text-m mt-24" href="tel:+525555201771">+52 55 5520 1771<br>Ext. 0</a>
+                    </div>
+                </div>
+                <div class="to-footer-col order-2 order-lg-3">
+                    <p class="text-m font-b">REDES</p>
+                    <div class="mt-24">
+                        <a class="footer-red text-m" href="#" target="_blank" rel="noopener">LINKEDIN<span class="footer-red-arrow"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17 17V7H7M17 7L7 17" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+                    </div>
+                </div>
+                <div class="to-footer-col order-4">
+                    <p class="text-m font-b">UBICACIONES</p>
+                    <div class="to-footer-bloque mt-24">
+                        <p class="text-m">Av. Palmas 405<br>Lomas de Chapultepec,<br>C.P. 11000, México D.F.</p>
+                        <p class="text-m mt-24">Av. Palmas 275<br>Lomas de Chapultepec,<br>C.P. 11000, México D.F.</p>
+                        <p class="text-m mt-24">Av. Palmas 425<br>Lomas de Chapultepec,<br>C.P. 11000, México D.F.</p>
+                    </div>
+                </div>
+                </div>
+                </div>
+            </div>
+            <div class="row mt-40 mt-16m">
+                <div class="col-12">
+                    <p class="to-brochure to-brochure-centro">
+                        <span class="head-op5">DESCARGA NUESTRO BROCHURE</span>
+                        <span class="to-brochure-links">
+                            <a class="text-m text-underline" href="#">MÓVIL</a>
+                            <a class="text-m text-underline" href="#">DESKTOP</a>
+                        </span>
+                    </p>
+                </div>
+            </div>
+            <div class="row mt-24">
+                <div class="col-12">
+                    <div class="box-rule-top footer-bar">
+                        <p class="text-s text-xsm">©Torres Óptima, 2026 | Diseñado por <a class="text-underline" href="https://remedia.mx/" target="_blank" rel="noopener">Remedia</a></p>
+                        <a class="to-footer-brom" href="../index.html" aria-label="Brom">
+                            <svg width="85" height="26" viewBox="0 0 92 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M44.7198 9.15527C39.6226 9.15527 35.304 12.9964 35.304 18.577C35.304 24.1576 39.714 27.9987 44.7198 27.9987C49.7256 27.9987 54.1357 24.1576 54.1357 18.577C54.1357 12.9964 49.5885 9.15527 44.7198 9.15527ZM44.5854 22.9998C42.485 22.9998 40.271 21.513 40.271 18.6228C40.271 15.7326 42.5737 14.157 44.6741 14.157C46.7745 14.157 49.0814 15.6756 49.0814 18.6228C49.0814 21.5699 46.6872 22.9998 44.5854 22.9998Z"/>
+                                <path d="M0 27.6335V1.01477L4.44469 0V11.622C6.13361 9.84512 8.17861 9.09549 10.5312 9.09549C15.7601 9.09549 19.5245 13.2906 19.5245 18.5672C19.5245 23.8437 15.3804 27.8945 10.5132 27.8945C8.30607 27.8945 5.98259 26.9908 4.28812 25.0931L3.52748 27.6335H0ZM10.3137 23.1885C12.9697 23.1885 14.7112 20.959 14.7112 18.5241C14.7112 15.7089 12.6843 13.7779 10.2957 13.7779C7.90705 13.7779 5.86205 15.627 5.86205 18.5241C5.86205 20.9993 7.58146 23.1885 10.3137 23.1885Z"/>
+                                <path d="M34.1983 13.6708H32.5287C29.0941 13.6708 27.225 15.8142 27.225 19.3818V27.6333H22.7776V9.31322H26.3314L27.268 12.252C28.0466 10.4307 29.7467 9.24658 32.1934 9.24658C32.8239 9.24658 33.4543 9.32155 34.1969 9.50618V13.6694L34.1983 13.6708Z"/>
+                                <path d="M57.4609 27.6309V9.31911H61.0645L61.9333 11.7915C63.0278 10.2589 65.0451 9.27191 66.8823 9.27191C69.2348 9.27191 71.1884 10.2784 72.1541 12.2552C73.1697 10.6504 75.4502 9.21777 78.3542 9.21777C82.5343 9.21777 84.9769 12.0455 84.9769 15.523V27.6364H80.499V17.5275C80.499 14.8886 79.047 13.6656 76.9839 13.6656C74.9209 13.6656 73.4689 15.4883 73.4689 17.6358V27.6267H68.9453V17.6414C68.9453 15.4425 67.3478 13.703 65.4206 13.703C63.4933 13.703 61.9055 15.4064 61.9055 17.5817V27.6309H57.4595H57.4609Z"/>
+                                <path d="M92.0001 23.6035H87.8616V27.7501H92.0001V23.6035Z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <!-- Swiper -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script type="text/javascript" src="../../assets/js/main.js"></script>
+    <script type="text/javascript" src="../../assets/js/form.js"></script>
+    <script type="text/javascript" src="../../assets/js/jquery.validate.min.js"></script>
+
+</body>
+
+</html>

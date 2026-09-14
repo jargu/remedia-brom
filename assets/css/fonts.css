@@ -1,0 +1,301 @@
+/* #Fonts
+================================================== */
+@font-face {
+    font-family: 'PT Serif';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('fonts/PTSerif-Regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Syne';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('fonts/Syne-Regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Syne';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('fonts/Syne-Bold.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Sentient';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url('fonts/Sentient-Light.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Sentient';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('fonts/Sentient-Medium.woff2') format('woff2');
+}
+
+:root {
+    --font-head: 'PT Serif', serif;
+    --font-body: 'Syne', sans-serif;
+    --font-optima: 'Sentient', serif;
+}
+
+.head-op1 {
+    font-family: var(--font-optima);
+    font-weight: 300;
+    font-size: 36px;
+    line-height: normal;
+    letter-spacing: -0.72px;
+    text-transform: uppercase;
+}
+
+.head-op2 {
+    font-family: var(--font-optima);
+    font-weight: 300;
+    font-size: 28px;
+    line-height: normal;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+.head-op4 {
+    font-family: var(--font-optima);
+    font-weight: 300;
+    font-size: 18px;
+    line-height: normal;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+.head-op5 {
+    font-family: var(--font-optima);
+    font-weight: 300;
+    font-size: 14px;
+    line-height: normal;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+.head-xl {
+    font-family: var(--font-head);
+    font-weight: 400;
+    font-size: 40px;
+    line-height: normal;
+    letter-spacing: -0.8px;
+}
+
+.head-1 {
+    font-family: var(--font-head);
+    font-weight: 400;
+    font-size: 36px;
+    line-height: normal;
+    letter-spacing: -0.72px;
+}
+
+.head-2 {
+    font-family: var(--font-head);
+    font-weight: 400;
+    font-size: 28px;
+    line-height: normal;
+    letter-spacing: 0;
+}
+
+.head-3 {
+    font-family: var(--font-head);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: normal;
+    letter-spacing: 0;
+}
+
+.head-4 {
+    font-family: var(--font-head);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: normal;
+    letter-spacing: 0;
+}
+
+.head-16 {
+    font-family: var(--font-head);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: normal;
+    letter-spacing: -0.32px;
+}
+
+.head-5 {
+    font-family: var(--font-head);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: normal;
+    letter-spacing: 0;
+}
+
+.text-xl {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: normal;
+    letter-spacing: 0;
+}
+
+.text-l {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: normal;
+    letter-spacing: 0;
+}
+
+.text-m {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: normal;
+    letter-spacing: 0;
+}
+
+.text-s {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: normal;
+    letter-spacing: 0;
+}
+
+.text-xs {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 10px;
+    line-height: normal;
+    letter-spacing: 0;
+}
+
+@media(max-width: 768px) {
+    .head-op1m {
+        font-family: var(--font-optima);
+        font-weight: 300;
+        font-size: 36px;
+        line-height: normal;
+        letter-spacing: -0.72px;
+        text-transform: uppercase;
+    }
+    .head-op5m {
+        font-family: var(--font-optima);
+        font-weight: 300;
+        font-size: 14px;
+        line-height: normal;
+        letter-spacing: 0;
+        text-transform: uppercase;
+    }
+
+    .head-op3m {
+        font-family: var(--font-optima);
+        font-weight: 300;
+        font-size: 24px;
+        line-height: normal;
+        letter-spacing: 0;
+        text-transform: uppercase;
+    }
+    .head-op2m {
+        font-family: var(--font-optima);
+        font-weight: 300;
+        font-size: 28px;
+        line-height: normal;
+        letter-spacing: 0;
+        text-transform: uppercase;
+    }
+    .head-1m {
+        font-family: var(--font-head);
+        font-weight: 400;
+        font-size: 36px;
+        line-height: normal;
+        letter-spacing: -0.72px;
+    }
+    .head-2m {
+        font-family: var(--font-head);
+        font-weight: 400;
+        font-size: 28px;
+        line-height: normal;
+        letter-spacing: 0;
+    }
+    .head-3m {
+        font-family: var(--font-head);
+        font-weight: 400;
+        font-size: 24px;
+        line-height: normal;
+        letter-spacing: 0;
+    }
+    .head-4m {
+        font-family: var(--font-head);
+        font-weight: 400;
+        font-size: 18px;
+        line-height: normal;
+        letter-spacing: 0;
+    }
+    .head-5m {
+        font-family: var(--font-head);
+        font-weight: 400;
+        font-size: 14px;
+        line-height: normal;
+        letter-spacing: 0;
+    }
+    .text-xlm {
+        font-family: var(--font-body);
+        font-weight: 400;
+        font-size: 18px;
+        line-height: normal;
+        letter-spacing: 0;
+    }
+    .text-lm {
+        font-family: var(--font-body);
+        font-weight: 400;
+        font-size: 16px;
+        line-height: normal;
+        letter-spacing: 0;
+    }
+    .text-mm {
+        font-family: var(--font-body);
+        font-weight: 400;
+        font-size: 14px;
+        line-height: normal;
+        letter-spacing: 0;
+    }
+    .text-sm {
+        font-family: var(--font-body);
+        font-weight: 400;
+        font-size: 12px;
+        line-height: normal;
+        letter-spacing: 0;
+    }
+    .text-xsm {
+        font-family: var(--font-body);
+        font-weight: 400;
+        font-size: 10px;
+        line-height: normal;
+        letter-spacing: 0;
+    }
+}
+
+.font-b {
+    font-weight: 700;
+}
+
+.font-m {
+    font-weight: 500;
+}
+
+.font-l {
+    font-weight: 300;
+}
+
+sup {
+    font-size: .645em;
+}
