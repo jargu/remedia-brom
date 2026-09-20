@@ -17,10 +17,19 @@
   $(".navbar-collapse")
     .on("show.bs.collapse", function () {
       $("header").addClass("menu-open");
+      $("body").addClass("menu-open");
     })
     .on("hidden.bs.collapse", function () {
       $("header").removeClass("menu-open");
+      $("body").removeClass("menu-open");
     });
+
+  $(".navbar-collapse a[href]").not(".dropdown > .nav-link").on("click", function () {
+    var panel = this.closest(".navbar-collapse");
+    if (panel && panel.classList.contains("show")) {
+      bootstrap.Collapse.getOrCreateInstance(panel).hide();
+    }
+  });
 
   var desktopHover = window.matchMedia("(min-width: 992px) and (hover: hover)");
   var megaTrigger = $(".navbar-nav .nav-item.dropdown > .nav-link");

@@ -44,7 +44,7 @@
 }
 @media (min-width: 1200px) {
     .container, .container-lg, .container-md, .container-sm, .container-xl {
-        max-width: 1160px;
+        max-width: 1140px;
         margin-right: auto;
         margin-left: auto;
         padding-left: 0;
@@ -142,14 +142,9 @@
         width: 45px;
     }
 }
-@media (min-width: 992px) and (max-width: 1199px) {
-    .mega-preview{
-        gap: 40px;
-    }
-}
 @media (min-width: 1300px) {
     .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
-        max-width: 1160px;
+        max-width: 1140px;
         width: calc(100% - 160px);
         margin-right: auto;
         margin-left: auto;
@@ -197,7 +192,7 @@
         margin-top: 16px;
     }
     .banda-texto{
-        width: 672px;
+        width: calc(100% / 12 * 7);
     }
     .form-row > *:nth-child(3){
         margin-top: 8px;
@@ -252,16 +247,29 @@
     header .navbar-collapse{
         display: flex;
         flex-direction: column;
+        /* el Figma alinea el menu arriba (contenido a 40 del borde del panel);
+           el !important anula el justify-content-center del marcado */
+        justify-content: flex-start !important;
         min-height: calc(100vh - 66px);
         min-height: calc(100dvh - 66px);
-        padding: 40px 16px;
+        max-height: calc(100vh - 66px);
+        max-height: calc(100dvh - 66px);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        padding: 40px 15px 40px 16px;
         background-color: var(--black);
+    }
+    header .navbar-collapse > :last-child{
+        margin-top: auto;
     }
     .navbar-nav{
         align-items: flex-end;
         gap: 40px;
         width: 100%;
         text-align: right;
+    }
+    .navbar-nav .nav-item.dropdown{
+        width: 100%;
     }
     .navbar-expand-lg .navbar-nav .mega{
         display: grid;
@@ -301,13 +309,9 @@
     .mega .row > *{
         padding: 0;
     }
-    .mega-grid{
-        display: block;
-        margin-top: 40px;
-    }
     .mega-list{
         gap: 24px;
-        width: auto;
+        margin-top: 40px;
         align-items: flex-end;
     }
     .mega-group{
@@ -350,7 +354,7 @@
     }
     .mega-project{
         flex-direction: column;
-        align-items: flex-end;
+        align-items: flex-start;
         gap: 8px;
         color: var(--white);
     }
@@ -364,16 +368,19 @@
     .mega-thumb img{
         display: block;
         width: 100%;
-        height: 80px;
+        aspect-ratio: 104 / 80;
+        height: auto;
         object-fit: cover;
     }
     .mega-project-row{
-        justify-content: flex-end;
+        justify-content: space-between;
         align-items: flex-start;
         gap: 8px;
+        width: 100%;
     }
     .mega-project-name{
-        width: 76px;
+        flex: 0 1 auto;
+        min-width: 0;
         font-size: 12px;
         text-align: left;
     }
@@ -393,9 +400,6 @@
     .mega-prev .mega-arrow{
         width: 24px;
         height: 24px;
-    }
-    .mega-preview{
-        display: none;
     }
     .menu-footer{
         display: flex;
@@ -471,17 +475,10 @@
         height: 640px;
     }
     .hero-section > .container > .row{
-        height: 100%;
         align-items: flex-end;
     }
     .hero-content{
-        width: 100%;
-        padding-top: 0;
         padding-bottom: 80px;
-    }
-    .hero-text h1,
-    .hero-text p{
-        width: 100%;
     }
     .datos-row .head-1m{
         min-height: 94px;
@@ -561,6 +558,17 @@
     }
 }
 
+/* Retícula oficial de escritorio: contenedor 1140, 12 columnas, gutter 20.
+   En móvil los rows conservan sus gutters propios (16 o 0 según el bloque). */
+@media (min-width: 992px) {
+    .row {
+        --bs-gutter-x: 20px;
+    }
+    .header-torres .navbar .row {
+        --bs-gutter-x: 20px;
+    }
+}
+
 /* #Torres Optima
 ================================================== */
 @media (min-width: 992px) {
@@ -591,6 +599,10 @@
     .header-torres .navbar-collapse {
         min-height: calc(100vh - 80px);
         min-height: calc(100dvh - 80px);
+        max-height: calc(100vh - 80px);
+        max-height: calc(100dvh - 80px);
+        overflow-y: auto;
+        overscroll-behavior: contain;
         background-color: var(--white);
         color: var(--black);
     }
@@ -604,11 +616,16 @@
         justify-content: flex-end;
         padding-top: 40px;
     }
-    .torres-card {
-        width: 104px;
+    .torres-torres-list > li {
+        flex: 1 1 0;
+        min-width: 0;
+    }
+    .torres-torres-list > li > .torres-card {
+        width: 100%;
     }
     .torres-card-media img {
-        height: 100px;
+        aspect-ratio: 104 / 100;
+        height: auto;
     }
     .torres-card-pie {
         align-items: flex-start;
@@ -629,6 +646,10 @@
         width: 132px;
     }
     .navbar .navbar-brand-torres svg {
+        height: 16px;
+    }
+    .navbar .navbar-brand-torre img {
+        width: auto;
         height: 16px;
     }
     .btn-pill {
@@ -662,7 +683,7 @@
     .mt-80m { margin-top: 80px; }
     .text-start-m { text-align: left !important; }
     .to-operacion-media-col { padding: 0; margin-left: -8px; }
-    .to-operacion-media { width: 239px; }
+    .to-operacion-media { width: 66.7%; }
     .eco-media-item img,
     .eco-item-media img { height: 186px; }
     .eco-lista { --bs-gutter-x: 0; flex-wrap: nowrap; }
@@ -694,7 +715,7 @@
     .dist-item { padding: 8px 0; }
     .cert-sello { width: 32px; height: 32px; }
     .cert-logo { height: 10px; }
-    .to-cifras-row > * { flex: 0 0 164px; width: 164px; }
+    .to-cifras-row > * { flex: 0 0 50%; width: 50%; }
     .to-cifras-row { --bs-gutter-x: 16px; justify-content: center; }
     .to-cifras-row > *:nth-child(3) { margin-top: 40px; }
     .brom-media img { height: 300px; }
@@ -702,8 +723,8 @@
     .to-brom-fotos > * { flex: 0 0 285px; width: 285px; }
     .to-brom-texto { align-items: center; text-align: center; }
     .brom-logo svg { width: 196px; height: 60px; }
-    .to-footer-cols { flex-wrap: wrap; gap: 40px 16px; }
-    .to-footer-col { width: calc(50% - 8px); }
+    .to-footer-cols { --bs-gutter-x: 16px; }
+    .to-footer-cols > *:nth-child(n+3) { margin-top: 40px; }
     .to-brochure { flex-direction: column; align-items: flex-start; gap: 16px; }
     .to-brochure-centro { align-items: center; }
     .to-footer-isotipo img { width: 60px; height: 60px; }

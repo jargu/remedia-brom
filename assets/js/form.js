@@ -1,5 +1,23 @@
 var URL_FORMULARIO = "PENDIENTE_APPS_SCRIPT_BROM";
 
+// Textos según el idioma de la página (CLAUDE: se eligen por document.documentElement.lang)
+var FORM_EN = document.documentElement.lang === "en";
+var FORM_TEXTOS = FORM_EN ? {
+    requerido: "This field is required.",
+    nombreMin: "Your name must be at least 3 characters long.",
+    correo: "Please enter a valid email address.",
+    enviando: "Sending…",
+    error: "We couldn't send your message. Please try again in a few minutes.",
+    gracias: "thank-you.html"
+} : {
+    requerido: "Este campo es obligatorio.",
+    nombreMin: "El nombre debe tener al menos 3 caracteres.",
+    correo: "Introduce una dirección de correo electrónico válida.",
+    enviando: "Enviando…",
+    error: "No pudimos enviar tu mensaje. Inténtalo de nuevo en unos minutos.",
+    gracias: "gracias.html"
+};
+
 $(document).ready(function () {
     $("#contact-form").validate({
         ignore: ":hidden:not(select)",
@@ -9,12 +27,12 @@ $(document).ready(function () {
         },
         messages: {
             nombre: {
-                required: "Este campo es obligatorio.",
-                minlength: "El nombre debe tener al menos 3 caracteres."
+                required: FORM_TEXTOS.requerido,
+                minlength: FORM_TEXTOS.nombreMin
             },
             correo: {
-                required: "Este campo es obligatorio.",
-                email: "Introduce una dirección de correo electrónico válida."
+                required: FORM_TEXTOS.requerido,
+                email: FORM_TEXTOS.correo
             }
         },
         errorElement: "label",
@@ -37,7 +55,7 @@ $(document).ready(function () {
             datos.pagina = document.title;
             datos.idioma = document.documentElement.lang;
 
-            $boton.prop("disabled", true).text("Enviando…");
+            $boton.prop("disabled", true).text(FORM_TEXTOS.enviando);
 
             $.ajax({
                 url: URL_FORMULARIO,
@@ -45,15 +63,15 @@ $(document).ready(function () {
                 data: $.param(datos),
                 success: function (respuesta) {
                     if ($.trim(respuesta) === "SUCCESS") {
-                        window.location.href = "gracias.html";
+                        window.location.href = FORM_TEXTOS.gracias;
                         return;
                     }
                     $boton.prop("disabled", false).text(rotulo);
-                    alert("No pudimos enviar tu mensaje. Inténtalo de nuevo en unos minutos.");
+                    alert(FORM_TEXTOS.error);
                 },
                 error: function () {
                     $boton.prop("disabled", false).text(rotulo);
-                    alert("No pudimos enviar tu mensaje. Inténtalo de nuevo en unos minutos.");
+                    alert(FORM_TEXTOS.error);
                 }
             });
 
